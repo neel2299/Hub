@@ -1036,18 +1036,20 @@ class Dataset:
         self.storage.clear()
 
     def __str__(self):
-        head = ["tensor", "htype", "dtype", "shape"]
-        tensor_dict = self.version_state["full_tensors"] # Creating a list of tensors in the dataset
+        head = ["tensor", "htype", "dtype", "shape"]  # creating table head
+        tensor_dict = self.version_state[
+            "full_tensors"
+        ]  # Creating a list of tensors in the dataset
         table_array = []
-        for tensor in tensor_dict:
+        for tensor in tensor_dict:  # adding various tensor attributes
             tensor_object = tensor_dict[tensor]
-            
+
             tensor_name = tensor
             tensor_htype = tensor_object.htype
             tensor_shape = str(tensor_object.shape)
             tensor_dtype = tensor_object.dtype.name
-            table_array.append([tensor_name, tensor_htype, tensor_shape, tensor_dtype] )
-        df=DataFrame(table_array)
+            table_array.append([tensor_name, tensor_htype, tensor_shape, tensor_dtype])
+        df = DataFrame(table_array)
         df.columns = head
         path_str = ""
         if self.path:
@@ -1065,7 +1067,11 @@ class Dataset:
             f"group_index='{self.group_index}', " if self.group_index else ""
         )
         tensors = self.version_state["full_tensors"].values()
-        return f"Dataset({path_str}{mode_str}{index_str}{group_index_str}tensors={self.version_state['meta'].tensors})"+"\n"+ df.to_string()
+        return (
+            f"Dataset({path_str}{mode_str}{index_str}{group_index_str}tensors={self.version_state['meta'].tensors})"
+            + "\n"
+            + df.to_string()
+        )
 
     __repr__ = __str__
 
