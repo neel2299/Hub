@@ -1043,7 +1043,7 @@ class Dataset:
         self._unlock()
         self.storage.clear()
 
-   def __str__(self):
+    def __str__(self):
         head = ["tensor", "htype", "dtype", "shape"]  #creating table head
         tensor_dict = self.version_state["full_tensors"] # Creating a list of tensors in the dataset
         table_array = []
