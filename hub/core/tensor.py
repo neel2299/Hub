@@ -576,7 +576,6 @@ class Tensor:
             maxColumnLength, selfArray[2]
         )  # 3rd element of slefarray corresponds to tensor att
         maxColumnLength = [elem + 2 for elem in maxColumnLength]
-        print(1)  ##################################################
         return (
             f"Tensor(key={repr(self.key)}{index_str})"
             + "\n"
