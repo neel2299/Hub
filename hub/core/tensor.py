@@ -1,4 +1,5 @@
 import hub
+from pandas import DataFrame
 from hub.core.storage.lru_cache import LRUCache
 from hub.core.storage.memory import MemoryProvider
 from hub.core.version_control.commit_chunk_set import CommitChunkSet
@@ -539,7 +540,12 @@ class Tensor:
         index_str = f", index={self.index}"
         if self.index.is_trivial():
             index_str = ""
-        return f"Tensor(key={repr(self.key)}{index_str})"
+        head = ["tensor", "htype", "dtype", "shape"]
+        selfArray = [[str(self.key), self.htype, str(self.shape), self.dtype.name]]
+        # adding information about tensors
+        df = DataFrame(selfArray)
+        df.columns = head
+        return f"Tensor(key={repr(self.key)}{index_str})" + "\n" + df.to_string()
 
     __repr__ = __str__
 

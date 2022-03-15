@@ -1050,7 +1050,8 @@ class Dataset:
             tensor_dtype = tensor_object.dtype.name
             table_array.append([tensor_name, tensor_htype, tensor_shape, tensor_dtype])
         df = DataFrame(table_array)
-        df.columns = head
+        if len(df.columns != 0):
+            df.columns = head
         path_str = ""
         if self.path:
             path_str = f"path='{self.path}', "
