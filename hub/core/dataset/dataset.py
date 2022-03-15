@@ -1,5 +1,4 @@
 # type: ignore
-from pandas import DataFrame
 import numpy as np
 from time import time
 import json

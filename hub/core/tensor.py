@@ -1,5 +1,4 @@
 import hub
-from pandas import DataFrame
 from hub.core.storage.lru_cache import LRUCache
 from hub.core.storage.memory import MemoryProvider
 from hub.core.version_control.commit_chunk_set import CommitChunkSet
