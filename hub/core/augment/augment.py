@@ -15,7 +15,7 @@ class Augmenter():
       transformation_dict: (Optional) Give the transformation structure as input. It is a dictionary 
                             with tensors as keys and contains lists of augmentation strategies as values. 
                             Each augmentation strategy is a tupple of a list of augmentation_sequence and a condition variable
-                            Structure:   {"images": [augmentation_strategy_1, augmentation_strategy_2 ...]}
+                            Structure: {"images": [augmentation_strategy_1, augmentation_strategy_2 ...]}
                                          where augmentation_strategy = (augmentation_sequence, sample_condition)
     """
     if transformation_dict!=None:
@@ -49,4 +49,4 @@ class Augmenter():
     """
     
     transformation_info = [return_tensors, self.transformation_dict.copy()]
-    return ds(transform=transformation_info, multiple_transforms=True, num_workers=num_workers, batch_size=batch_size).pytorch
+    return ds.pytorch(transform=transformation_info, multiple_transforms=True, num_workers=num_workers, batch_size=batch_size)
