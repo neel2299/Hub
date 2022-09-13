@@ -6,6 +6,9 @@ import torch
 
 
 def transform_image(comp_func):
+    """
+    Helper function to compute hub compute objects.
+    """
     return comp_func.func(*comp_func.args)
 
 
@@ -65,7 +68,7 @@ class TrivialAugment(TrivialAugmentWide):
       
   #Needs to be instantiated only once
 @hub.compute
-def trivial_augment(image, include_transforms=None, exclude_transforms=None):
+def trivial_augment(image, exclude_transforms=None, include_transforms=None):
   """
   Applies TrivialAugment on a tensor.
   """
