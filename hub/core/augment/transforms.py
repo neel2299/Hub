@@ -66,12 +66,18 @@ class TrivialAugment(TrivialAugmentWide):
       return aug_space_additive
     return aug_space
       
+
+  def apply(self, image):
+    """
+    Applies TrivialAugment on a tensor.
+    """
+    image = torch.from_numpy(image)
+    image = image.permute(2, 0, 1)
+    image = self.forward(image).permute(1, 2, 0).numpy()
+    return image
   #Needs to be instantiated only once
 @hub.compute
 def trivial_augment(image, exclude_transforms=None, include_transforms=None):
-  """
-  Applies TrivialAugment on a tensor.
-  """
   trivial_augmenter = TrivialAugment(include_transforms=include_transforms, exclude_transforms=exclude_transforms)  
 
   image = torch.from_numpy(image)

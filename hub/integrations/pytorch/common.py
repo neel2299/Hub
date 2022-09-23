@@ -14,13 +14,7 @@ def pipeline_image(image, pipe): #could not import due to circular impoet error
   if len(image.shape) == 2:
     updated_image = np.expand_dims(updated_image, axis=2)
   for fun in pipe:
-    if len(fun.args)!=0:
-      arr = [*fun.args]
-      arr.insert(0, updated_image)
-      args = tuple(arr)
-      updated_image = fun.func(*args)
-    else:
-      updated_image = fun.func(updated_image)
+    updated_image = fun.apply(updated_image)
   updated_image = torch.from_numpy(updated_image).permute(2,0,1)
   return updated_image
 

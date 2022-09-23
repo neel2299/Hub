@@ -1,0 +1,36 @@
+{
+    "default_index": [
+        {
+            "start": null,
+            "step": null,
+            "stop": null
+        }
+    ],
+    "groups": [],
+    "hidden_tensors": [
+        "_images_info",
+        "_images_shape",
+        "_images_id",
+        "_labels_shape",
+        "_labels_id"
+    ],
+    "tensor_names": {
+        "_images_id": "_images_id",
+        "_images_info": "_images_info",
+        "_images_shape": "_images_shape",
+        "_labels_id": "_labels_id",
+        "_labels_shape": "_labels_shape",
+        "images": "images",
+        "labels": "labels"
+    },
+    "tensors": [
+        "images",
+        "_images_info",
+        "_images_shape",
+        "_images_id",
+        "labels",
+        "_labels_shape",
+        "_labels_id"
+    ],
+    "version": "2.7.5"
+}

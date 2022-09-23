@@ -1,0 +1,41 @@
+{
+    "chunk_compression": null,
+    "dtype": "uint8",
+    "hidden": false,
+    "htype": "image",
+    "is_link": false,
+    "is_sequence": false,
+    "length": 3,
+    "links": {
+        "_images_id": {
+            "append": "append_id",
+            "flatten_sequence": false
+        },
+        "_images_info": {
+            "append": "append_info",
+            "flatten_sequence": true,
+            "update": "update_info"
+        },
+        "_images_shape": {
+            "append": "append_shape",
+            "flatten_sequence": true,
+            "update": "append_shape"
+        }
+    },
+    "max_chunk_size": null,
+    "max_shape": [
+        200,
+        200,
+        3
+    ],
+    "min_shape": [
+        200,
+        200,
+        3
+    ],
+    "name": "images",
+    "sample_compression": "jpeg",
+    "tiling_threshold": null,
+    "verify": false,
+    "version": "2.7.5"
+}
